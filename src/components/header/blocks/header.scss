@@ -1,0 +1,21 @@
+.header {
+  background-color: $dark-gray1;
+}
+
+.header__wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+
+  @include container();
+}
+
+.header__navigation {
+  margin-left: 114px;
+  margin-right: auto;
+}
+
+.header__icons {
+  margin-top: 4px;
+}

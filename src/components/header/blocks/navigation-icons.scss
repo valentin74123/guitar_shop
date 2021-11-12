@@ -1,0 +1,26 @@
+.navigation-icons__list {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  @include list();
+
+  
+}
+
+.navigation-icons__link {
+  text-decoration: none;
+  
+
+  &--map {
+    padding: 10px 20px;
+  }
+
+  &--search {
+    padding: 10px 15px;
+  }
+
+  &--basket {
+    padding: 10px 18px;
+  }
+}
