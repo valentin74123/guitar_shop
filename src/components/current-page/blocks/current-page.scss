@@ -1,0 +1,41 @@
+.current-page {
+  @include container();
+
+  margin-top: 206px;
+  margin-bottom: 40px;
+}
+
+.current-page__title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 22px;
+  line-height: 26px;
+  color: $black;
+
+  @include zero-margin();
+
+  margin-bottom: 20px;
+}
+
+.current-page__wrapper {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: $dark-gray2;
+}
+
+.current-page__main {
+  margin-right: 36px;
+  position: relative;
+
+  &::after {
+    position: absolute;
+    content: "";
+    top: 2px;
+    right: -25px;
+    width: 14px;
+    height: 14px;
+    background-image: url("./img/arrow-right.svg");
+  }
+}

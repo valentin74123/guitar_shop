@@ -4,9 +4,9 @@ import {Link} from 'react-router-dom';
 import {AppRoute} from '../../const';
 
 const Logo = (props) => {
-  const {footer} = props;
+  const {isFooter} = props;
 
-  const img = footer ? `./img/logo-white.svg` : `./img/logo.svg`;
+  const img = isFooter ? `./img/logo-white.svg` : `./img/logo.svg`;
 
   return (
     <Link to={AppRoute.MAIN}>
@@ -16,7 +16,7 @@ const Logo = (props) => {
 };
 
 Logo.propTypes = {
-  footer: PropTypes.bool.isRequired,
+  isFooter: PropTypes.bool.isRequired,
 };
 
 export default Logo;

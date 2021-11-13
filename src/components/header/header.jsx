@@ -7,13 +7,14 @@ import {Link} from 'react-router-dom';
 import "./style.scss";
 
 const Header = () => {
+  const isFooter = false;
   // const {testInfo} = useSelector((state) => state.TEST);
   const navigation = Object.values(Navigation);
 
   return (
     <header className="header">
       <div className="header__wrapper">
-        <Logo />
+        <Logo isFooter={isFooter} />
 
         <nav className="header__navigation navigation">
           <ul className="navigation__list">

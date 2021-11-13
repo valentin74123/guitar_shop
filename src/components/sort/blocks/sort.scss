@@ -1,0 +1,35 @@
+.sort {
+  display: flex;
+}
+
+.sort__title {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: $black;
+
+  letter-spacing: 0.05em;
+
+  @include zero-margin();
+
+  margin-right: 19px;
+}
+
+.sort__type {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 20px;
+  color: $black;
+
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  margin-right: 34px;
+}
+
+.sort__input {
+  &--down {
+    margin-left: auto;
+  }
+}

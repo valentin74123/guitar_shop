@@ -5,11 +5,13 @@ import {Link} from 'react-router-dom';
 import "./style.scss";
 
 const Footer = () => {
+  const isFooter = true;
+
   return (
     <footer className="footer">
       <div className="footer__wrapper">
         <div>
-          <Logo footer={true} />
+          <Logo isFooter={isFooter} />
 
           <div className="footer__social social">
             <ul className="social__list">
