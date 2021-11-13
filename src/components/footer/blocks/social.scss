@@ -1,0 +1,31 @@
+.social {
+  margin-top: 55px;
+}
+
+.social__list {
+  display: flex;
+
+
+  @include list();
+}
+
+.social__item {
+  margin-right: 22px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.social__link {
+  opacity: 0.65;
+
+  &:hover,
+  &:focus {
+    opacity: 0.3;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}

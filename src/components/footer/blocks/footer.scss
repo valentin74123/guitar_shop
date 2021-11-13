@@ -1,0 +1,12 @@
+.footer {
+  background-color: $dark-gray4;
+}
+
+.footer__wrapper {
+  padding: 60px 0;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  column-gap: 119px;
+
+  @include container();
+}

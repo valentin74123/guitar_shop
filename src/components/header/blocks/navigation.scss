@@ -22,4 +22,13 @@
   
   letter-spacing: 0.05em;
   text-decoration: none;
+
+  &:hover,
+  &:focus {
+    color: $dark-gray2;
+  }
+
+  &:active {
+    color: rgba($dark-gray2, 0.5);
+  }
 }
