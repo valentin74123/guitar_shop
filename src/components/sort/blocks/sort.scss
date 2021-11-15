@@ -26,10 +26,56 @@
   letter-spacing: 0.05em;
   text-decoration: none;
   margin-right: 34px;
+
+  &--popular {
+    margin-right: auto;
+  }
 }
 
-.sort__input {
-  &--down {
-    margin-left: auto;
+.sort__label {
+  font-family: "Droid Sans";
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: $black;
+
+  display: flex;
+  cursor: pointer;
+
+  &--disabled {
+    color: $light-gray2;
   }
+}
+
+.sort__label-box {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+
+  border: none;
+  background-color: transparent;
+  background-image: url("./img/icon-arrow-up.svg");
+  opacity: 0.4;
+
+  margin-top: -2px;
+
+  &--up {
+    transform: rotate(180deg);
+    margin-right: 7px;
+    margin-left: 14px;
+  }
+}
+
+.sort__input:focus + .sort__label .sort__label-box,
+.sort__input:hover + .sort__label .sort__label-box {
+  opacity: 0.6;
+}
+
+.sort__input:active + .sort__label .sort__label-box {
+  opacity: 0.3;
+}
+
+.sort__input:checked + .sort__label .sort__label-box {
+  opacity: 1;
 }

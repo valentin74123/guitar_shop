@@ -155,6 +155,10 @@ const Footer = () => {
             </li>
           </ul>
         </div>
+
+        <div className="guitar guitar--footer">
+          <span className="visually-hidden">Гитара</span>
+        </div>
       </div>
     </footer>
   );

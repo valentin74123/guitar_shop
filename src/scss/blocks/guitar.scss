@@ -1,0 +1,23 @@
+.guitar {
+  position: absolute;
+  content: "";
+  width: 893px;
+  height: 297px;
+  background-image: url("./img/guitar.png");
+  background-repeat: no-repeat;
+
+  &--header {
+    z-index: 2;
+    top: 72px;
+    right: 0;
+    background-position: right -69px bottom;
+  }
+
+  &--footer {
+    z-index: -1;
+    top: -90px;
+    left: 0;
+    transform: rotate(180deg);
+    background-position: left 60px bottom;
+  }
+}

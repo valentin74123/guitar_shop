@@ -9,3 +9,11 @@ export const Navigation = {
   About: `О компании`,
   Service: `Cервис-центры`,
 };
+
+export const Rating = {
+  1: `star-active`,
+  2: `star-active`,
+  3: `star-active`,
+  4: `star-active`,
+  5: `star`,
+};

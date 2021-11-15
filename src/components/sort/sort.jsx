@@ -15,10 +15,17 @@ const Sort = () => {
         по популярности
       </Link>
 
-      <input className="sort__input sort__input--down" type="radio" id="down-up" name="sort" />
-      <label className="sort__label visually-hidden" htmlFor="down-up">От меньшего к большему</label>
-      <input className="sort__input sort__input--up" type="radio" id="up-down" name="sort" />
-      <label className="sort__label visually-hidden" htmlFor="up-down">От большего к меньшему</label>
+      <input className="sort__input visually-hidden " type="radio" id="down-up" name="sort" checked/>
+      <label className="sort__label" htmlFor="down-up">
+        <span className="sort__label-box sort__label-box--down"/>
+        <span className="visually-hidden">От меньшего к большему</span>
+      </label>
+
+      <input className="sort__input visually-hidden" type="radio" id="up-down" name="sort" />
+      <label className="sort__label" htmlFor="up-down">
+        <span className="sort__label-box sort__label-box--up"/>
+        <span className="visually-hidden">От большего к меньшему</span>
+      </label>
     </section>
   );
 };

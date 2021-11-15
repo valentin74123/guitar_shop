@@ -58,6 +58,10 @@ const Header = () => {
             </li>
           </ul>
         </div>
+
+        <div className="guitar guitar--header">
+          <span className="visually-hidden">Гитара</span>
+        </div>
       </div>
     </header>
   );

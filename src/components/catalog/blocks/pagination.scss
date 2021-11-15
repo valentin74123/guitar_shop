@@ -1,0 +1,31 @@
+.pagination__list {
+  @include list();
+
+  display: flex;
+  margin-left: auto;
+  max-width: 220px;
+  column-gap: 10px;
+}
+
+.pagination__link {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  line-height: 20px;
+  color: $black;
+
+  letter-spacing: 0.05em;
+
+  text-decoration: none;
+  padding: 4px 7px;
+
+  border: 0.7px solid $dark-gray5;
+  box-sizing: border-box;
+  border-radius: 2px;
+
+  &--active {
+    color: $white;
+    border: 0.7px solid $dark-gray3;
+    background-color: $dark-gray3;
+  }
+}
