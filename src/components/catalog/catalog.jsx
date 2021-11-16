@@ -31,8 +31,8 @@ const Catalog = () => {
 
           <span className="catalog__price">17 500 ₽</span>
 
-          <button className="catalog__info">Подробнее</button>
-          <button className="catalog__buy">
+          <button className="catalog__info gray-button">Подробнее</button>
+          <button className="catalog__buy orange-button">
             <svg className="catalog__buy-icon" width="12" height="13">
               <use xlinkHref="#cart"></use>
             </svg>

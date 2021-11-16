@@ -1,0 +1,27 @@
+.gray-button {
+  color: $white;
+  background-color: $gray;
+
+  &:hover,
+  &:focus {
+    background-color: $dark-gray3;
+  }
+
+  &:active {
+    background-color: $dark-gray5;
+  }
+}
+
+.orange-button {
+  color: $white;
+  background-color: $orange;
+
+  &:hover,
+  &:focus {
+    background-color: $orange-hover;
+  }
+
+  &:active {
+    background-color: $orange-click;
+  }
+}

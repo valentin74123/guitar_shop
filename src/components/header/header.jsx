@@ -1,7 +1,7 @@
 import React from 'react';
 // import {useSelector} from 'react-redux';
 import Logo from '../logo/logo';
-import {Navigation} from '../../const';
+import {Navigation, AppRoute} from '../../const';
 import {Link} from 'react-router-dom';
 
 import "./style.scss";
@@ -49,7 +49,7 @@ const Header = () => {
             </li>
 
             <li className="navigation-icons__item">
-              <Link className="navigation-icons__link navigation-icons__link--basket" to="#">
+              <Link className="navigation-icons__link navigation-icons__link--basket" to={AppRoute.BASKET}>
                 <svg className="navigation-icons__icon" width="16" height="18">
                   <use xlinkHref="#basket"></use>
                 </svg>

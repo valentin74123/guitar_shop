@@ -15,7 +15,7 @@ const Sort = () => {
         по популярности
       </Link>
 
-      <input className="sort__input visually-hidden " type="radio" id="down-up" name="sort" checked/>
+      <input className="sort__input visually-hidden " type="radio" id="down-up" name="sort" defaultChecked/>
       <label className="sort__label" htmlFor="down-up">
         <span className="sort__label-box sort__label-box--down"/>
         <span className="visually-hidden">От меньшего к большему</span>

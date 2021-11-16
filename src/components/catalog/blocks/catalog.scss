@@ -74,31 +74,8 @@
   border-radius: 2px;
 }
 
-.catalog__info {
-  background-color: $gray;
-
-  &:hover,
-  &:focus {
-    background-color: $dark-gray3;
-  }
-
-  &:active {
-    background-color: $dark-gray5;
-  }
-}
-
 .catalog__buy {
-  background-color: $orange;
   margin-left: auto;
-
-  &:hover,
-  &:focus {
-    background-color: $orange-hover;
-  }
-
-  &:active {
-    background-color: $orange-click;
-  }
 }
 
 .catalog__buy-icon {

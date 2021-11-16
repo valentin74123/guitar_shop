@@ -2,10 +2,16 @@
   display: flex;
 
   @include list();
+
+  margin-top: 8px;
 }
 
 .footer-nav__item {
   margin-right: 17px;
+
+  &:nth-child(2) {
+    margin-right: 65px;
+  }
 
   &:last-child {
     margin-right: 0;

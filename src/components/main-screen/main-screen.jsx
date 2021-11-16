@@ -7,12 +7,14 @@ import Sort from '../sort/sort';
 import Catalog from '../catalog/catalog';
 
 const MainScreen = () => {
+  const isBasket = false;
+
   return (
     <div className="page">
       <Header />
 
       <main className="main">
-        <CurrentPage />
+        <CurrentPage isBasket={isBasket} />
 
         <section className="catalog-section">
           <Filters />

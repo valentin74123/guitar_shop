@@ -1,4 +1,4 @@
-@mixin element-brightness {
+@mixin element-brightness() {
   &:hover,
   &:focus {
     opacity: 0.6;
@@ -24,12 +24,13 @@
   color: $black;
 }
 
-@mixin button-reset {
+@mixin button-reset() {
   display: block;
   padding: 0;
 
   font-family: inherit;
   border: none;
+  background-color: inherit;
 }
 
 @mixin zero-margin() {

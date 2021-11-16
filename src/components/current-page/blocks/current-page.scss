@@ -3,6 +3,11 @@
 
   margin-top: 214px;
   margin-bottom: 50px;
+
+  &--basket {
+    margin-top: 238px;
+    margin-bottom: 28px;
+  }
 }
 
 .current-page__title {
@@ -25,15 +30,16 @@
   color: $dark-gray2;
 }
 
-.current-page__main {
-  margin-right: 36px;
+.current-page__page {
+  margin-left: 36px;
+
   position: relative;
 
   &::after {
     position: absolute;
     content: "";
     top: 2px;
-    right: -25px;
+    left: -25px;
     width: 14px;
     height: 14px;
     background-image: url("./img/arrow-right.svg");
