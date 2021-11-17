@@ -1,0 +1,165 @@
+.popup {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba($black, 0.5);
+  z-index: 4;
+}
+
+.popup__wrapper {
+  position: relative;
+  padding: 30px 50px 32px;
+  background: $white;
+  box-shadow: 0 5px 6px rgba(63, 63, 63, 0.2);
+  border-radius: 4px;
+  width: 740px;
+
+  &--success {
+    padding: 30px 50px 54px;
+
+    .popup__title {
+      margin-bottom: 40px;
+    }
+
+    .popup__button-wrapper {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .popup__submit {
+      margin-bottom: 0;
+      margin-right: 37px;
+    }
+  }
+}
+
+.popup__close {
+  position: absolute;
+  content: "";
+  top: 20px;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+
+  background-image: url("../../img/icon-cross.svg");
+  background-repeat: no-repeat;
+  background-size: 18px 18px;
+  background-position: center;
+  background-color: inherit;
+  border: none;
+
+  cursor: pointer;
+
+  @include element-brightness();
+}
+
+.popup__title {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 18px;
+  line-height: 15px;
+  color: $dark-gray2;
+
+  letter-spacing: 0.02em;
+
+  @include zero-margin();
+
+  margin-bottom: 25px;
+}
+
+.popup__form {
+  display: flex;
+}
+
+.popup__form-wrapper {
+  display: flex;
+  margin-right: auto;
+}
+
+.popup__img {
+  margin-right: 40px;
+}
+
+.popup__info-wrapper {
+  margin-top: 14px;
+  max-width: 250px;
+}
+
+.popup__name {
+  @include name-text();
+
+  margin-bottom: 14px;
+}
+
+.popup__article {
+  margin-bottom: 6px;
+}
+
+.popup__article,
+.popup__type {
+  @include info-text();
+}
+
+.popup__price {
+  @include price-text();
+
+  margin-top: 20px;
+}
+
+.popup__button-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-top: 14px;
+  margin-left: auto;
+  min-width: 220px;
+}
+
+.popup__submit {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 15px;
+
+  letter-spacing: 0.05em;
+
+  border: none;
+  border-radius: 2px;
+  padding: 0 17px;
+  height: 46px;
+
+  margin-bottom: 16px;
+}
+
+.popup__continue {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 15px;
+
+  letter-spacing: 0.05em;
+
+  color: $dark-gray3;
+  border-radius: 2px;
+  border: 1px solid $dark-gray3;
+  padding: 15px 11px 14px;
+  background-color: inherit;
+  cursor: pointer;
+
+  &:hover,
+  &:focus {
+    color: rgba($dark-gray3, 0.7);
+    border: 1px solid rgba($dark-gray3, 0.7);
+  }
+
+  &:active {
+    color: rgba($dark-gray3, 0.5);
+    border: 1px solid rgba($dark-gray3, 0.5);
+  }
+}

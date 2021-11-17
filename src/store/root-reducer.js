@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
-import {test} from './test/test';
+import {page} from './page/page';
 
 export const NameSpace = {
-  TEST: `TEST`
+  PAGE: `PAGE`,
 };
 
 export default combineReducers({
-  [NameSpace.TEST]: test
+  [NameSpace.PAGE]: page
 });

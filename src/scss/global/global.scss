@@ -28,8 +28,7 @@
   }
 
   &--lock {
-    position: fixed;
-    overflow-y: scroll;
+    overflow: hidden;
   }
 }
 

@@ -1,3 +1,5 @@
+export const ESC_KEY = `Escape`;
+
 export const AppRoute = {
   MAIN: `/`,
   BASKET: `/basket`,
@@ -16,4 +18,10 @@ export const Rating = {
   3: `star-active`,
   4: `star-active`,
   5: `star`,
+};
+
+export const PopupType = {
+  ADD_GUITAR: `add-guitar`,
+  DELETE_GUITAR: `delete-guitar`,
+  SUCCESS_MESSAGE: `success-message`,
 };

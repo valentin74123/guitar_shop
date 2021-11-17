@@ -1,6 +1,7 @@
 .gray-button {
   color: $white;
   background-color: $gray;
+  cursor: pointer;
 
   &:hover,
   &:focus {
@@ -15,6 +16,7 @@
 .orange-button {
   color: $white;
   background-color: $orange;
+  cursor: pointer;
 
   &:hover,
   &:focus {

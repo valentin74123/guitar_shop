@@ -1,10 +1,16 @@
-import React from 'react';
-import {Rating} from '../../const';
+import React, {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import {Rating, PopupType} from '../../const';
+import {setPopup} from '../../store/actions';
 
 import "./style.scss";
 
 const Catalog = () => {
   const stars = Object.values(Rating);
+
+  const dispatch = useDispatch();
+
+  const handleBuyClick = useCallback(() => dispatch(setPopup(PopupType.ADD_GUITAR)), [dispatch]);
 
   return (
     <section className="catalog">
@@ -32,7 +38,7 @@ const Catalog = () => {
           <span className="catalog__price">17 500 ₽</span>
 
           <button className="catalog__info gray-button">Подробнее</button>
-          <button className="catalog__buy orange-button">
+          <button onClick={handleBuyClick} className="catalog__buy orange-button">
             <svg className="catalog__buy-icon" width="12" height="13">
               <use xlinkHref="#cart"></use>
             </svg>

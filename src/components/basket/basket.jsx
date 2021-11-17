@@ -1,22 +1,33 @@
-import React from "react";
+import React, {useCallback} from 'react';
+import {useDispatch} from 'react-redux';
+import {PopupType} from '../../const';
+import {setPopup} from '../../store/actions';
 
 import "./style.scss";
 
 const Basket = () => {
+  const dispatch = useDispatch();
+
+  const handleDeleteClick = useCallback((evt) => {
+    evt.preventDefault();
+
+    dispatch(setPopup(PopupType.DELETE_GUITAR));
+  }, [dispatch]);
+
   return (
     <section className="basket">
       <div className="basket__wrapper">
         <form action="">
           <ul className="basket__list">
             <li className="basket__item">
-              <button className="basket__delete">
-                <svg className="basket__delete__icon" width="18" height="18" >
+              <button onClick={handleDeleteClick} className="basket__delete">
+                <svg className="basket__delete-icon" width="18" height="18" >
                   <use xlinkHref="#cross"></use>
                 </svg>
                 <span className="visually-hidden">Удалить из корзины</span>
               </button>
 
-              <img className="basket__delete__img" src="./img/small-guitar.png" alt="ЭлектроГитара Честер bass" />
+              <img className="basket__img" src="./img/small-guitar.png" alt="ЭлектроГитара Честер bass" />
 
               <div className="basket__info">
                 <h3 className="basket__name">ЭлектроГитара Честер bass</h3>
@@ -50,13 +61,13 @@ const Basket = () => {
 
             <li className="basket__item">
               <button className="basket__delete">
-                <svg className="basket__delete__icon" width="18" height="18" >
+                <svg className="basket__delete-icon" width="18" height="18" >
                   <use xlinkHref="#cross"></use>
                 </svg>
                 <span className="visually-hidden">Удалить из корзины</span>
               </button>
 
-              <img className="basket__delete__img" src="./img/small-guitar.png" alt="ЭлектроГитара Честер bass" />
+              <img className="basket__img" src="./img/small-guitar.png" alt="ЭлектроГитара Честер bass" />
 
               <div className="basket__info">
                 <h3 className="basket__name">ЭлектроГитара Честер bass</h3>

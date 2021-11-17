@@ -26,7 +26,7 @@
   @include element-brightness();
 }
 
-.basket__delete__img {
+.basket__img {
   margin-top: -4px;
   margin-right: 62px;
 }
@@ -36,29 +36,13 @@
 }
 
 .basket__name {
-  font-style: normal;
-  font-weight: bold;
-  font-size: 16px;
-  line-height: 15px;
-  color: $black;
-  
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-
   @include zero-margin();
-
-  margin-bottom: 12px;
+  @include name-text();
 }
 
 .basket__article,
 .basket__type {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 14px;
-  line-height: 15px;
-  color: $black;
-  
-  letter-spacing: 0.05em;
+  @include info-text();
 }
 
 .basket__price,
@@ -78,7 +62,7 @@
 }
 
 .basket__all-price {
-  font-weight: bold;
+  @include price-text();
 }
 
 .basket__count {
