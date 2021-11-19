@@ -1,11 +1,14 @@
 import React, {useCallback} from 'react';
+import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 import {Rating, PopupType} from '../../const';
 import {setPopup} from '../../store/actions';
 
 import "./style.scss";
 
-const Catalog = () => {
+const Catalog = (props) => {
+  const {guitars} = props;
+
   const stars = Object.values(Rating);
 
   const dispatch = useDispatch();
@@ -17,34 +20,36 @@ const Catalog = () => {
       <h3 className="visually-hidden">Каталог</h3>
 
       <ul className="catalog__list">
-        <li className="catalog__item">
-          <img className="catalog__img" src="./img/electro-guitar.png" width="80" height="202" alt="" />
+        {guitars.map((guitar) => (
+          <li key={guitar.id} className="catalog__item">
+            <img className="catalog__img" src="./img/electro-guitar.png" width="80" height="202" alt="" />
 
-          <div className="catalog__rating">
-            <span className="catalog__stars">
-              {stars.map((star, i) => (
-                <svg key={star + i} className="navigation-icons__icon" width="11" height="11">
-                  <use xlinkHref={`#${star}`}></use>
-                </svg>
-              ))}
-            </span>
-            <span className="catalog__rate">
-              15
-            </span>
-          </div>
+            <div className="catalog__rating">
+              <span className="catalog__stars">
+                {stars.map((star, i) => (
+                  <svg key={star + i} className="navigation-icons__icon" width="11" height="11">
+                    <use xlinkHref={`#${star}`}></use>
+                  </svg>
+                ))}
+              </span>
+              <span className="catalog__rate">
+                {guitar.rating}
+              </span>
+            </div>
 
-          <span className="catalog__name">Честер Bass</span>
+            <span className="catalog__name">{guitar.name}</span>
 
-          <span className="catalog__price">17 500 ₽</span>
+            <span className="catalog__price">{guitar.price} ₽</span>
 
-          <button className="catalog__info gray-button">Подробнее</button>
-          <button onClick={handleBuyClick} className="catalog__buy orange-button">
-            <svg className="catalog__buy-icon" width="12" height="13">
-              <use xlinkHref="#cart"></use>
-            </svg>
-            Купить
-          </button>
-        </li>
+            <button className="catalog__info gray-button">Подробнее</button>
+            <button onClick={handleBuyClick} className="catalog__buy orange-button">
+              <svg className="catalog__buy-icon" width="12" height="13">
+                <use xlinkHref="#cart"></use>
+              </svg>
+              Купить
+            </button>
+          </li>
+        ))}
       </ul>
 
       <section className="catalog__pagination pagination">
@@ -78,6 +83,10 @@ const Catalog = () => {
       </section>
     </section>
   );
+};
+
+Catalog.propTypes = {
+  guitars: PropTypes.objectOf(PropTypes.object).isRequired,
 };
 
 export default Catalog;

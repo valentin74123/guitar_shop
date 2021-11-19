@@ -25,3 +25,8 @@ export const PopupType = {
   DELETE_GUITAR: `delete-guitar`,
   SUCCESS_MESSAGE: `success-message`,
 };
+
+export const SortType = {
+  PRICE: `по цене`,
+  POPULAR: `по популярности`,
+};

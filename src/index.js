@@ -9,6 +9,12 @@ import browserHistory from "./browser-history";
 
 import "./scss/style.scss";
 
+import * as data from './json/guitars.json';
+
+const guitarsData = Object.values(data)[0];
+const guitars = Object.values(guitarsData);
+
+
 const store = configureStore({
   reducer: rootReducer
 });
@@ -16,7 +22,7 @@ const store = configureStore({
 ReactDOM.render(
     <Provider store={store}>
       <BrowserRouter history={browserHistory}>
-        <App />
+        <App guitars={guitars}/>
       </BrowserRouter>
     </Provider>,
     document.querySelector(`#root`)

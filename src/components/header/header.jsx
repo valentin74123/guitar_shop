@@ -1,5 +1,4 @@
 import React from 'react';
-// import {useSelector} from 'react-redux';
 import Logo from '../logo/logo';
 import {Navigation, AppRoute} from '../../const';
 import {Link} from 'react-router-dom';
@@ -8,7 +7,6 @@ import "./style.scss";
 
 const Header = () => {
   const isFooter = false;
-  // const {testInfo} = useSelector((state) => state.TEST);
   const navigation = Object.values(Navigation);
 
   return (
