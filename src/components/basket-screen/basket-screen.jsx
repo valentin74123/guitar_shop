@@ -27,7 +27,7 @@ const BasketScreen = () => {
         <Basket />
       </main>
 
-      <Footer />
+      <Footer isBasket={isBasket}/>
 
       {isPopupShown && <Popup id={popupName} onClose={closePopup}/>}
     </div>

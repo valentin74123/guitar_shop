@@ -1,14 +1,16 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Logo from '../logo/logo';
 import {Link} from 'react-router-dom';
 
 import "./style.scss";
 
-const Footer = () => {
+const Footer = (props) => {
+  const {isBasket} = props;
   const isFooter = true;
 
   return (
-    <footer className="footer">
+    <footer className={`footer ${isBasket ? `footer--basket` : ``}`}>
       <div className="footer__wrapper">
         <div>
           <Logo isFooter={isFooter} />
@@ -162,6 +164,10 @@ const Footer = () => {
       </div>
     </footer>
   );
+};
+
+Footer.propTypes = {
+  isBasket: PropTypes.bool.isRequired,
 };
 
 export default Footer;

@@ -437,7 +437,7 @@ const MainScreen = () => {
         </section>
       </main>
 
-      <Footer />
+      <Footer isBasket={isBasket}/>
 
       {isPopupShown && <Popup
         id={popupName}

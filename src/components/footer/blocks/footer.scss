@@ -1,7 +1,11 @@
 .footer {
   background-color: $dark-gray4;
   position: relative;
-  margin-top: 120px;
+  margin-top: 141px;
+
+  &--basket {
+    margin-top: 120px;
+  }
 
   &::before {
     position: absolute;
