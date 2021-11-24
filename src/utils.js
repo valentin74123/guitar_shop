@@ -1,20 +1,49 @@
-import {SortType} from "./const";
+import {GuitarType} from './const';
 
 export const getBodyScrollTop = () => window.pageYOffset || (document.documentElement && document.documentElement.ScrollTop) || (document.body && document.body.scrollTop);
 export const isVerticalScroll = () => document.body.offsetHeight > window.innerHeight;
 
-export const sorting = (guitars, sortType) => {
-  switch (sortType) {
-    case SortType.PRICE:
-      return guitars.sort((a, b) => (a.price - b.price));
-    case SortType.POPULAR:
-      return guitars.sort((a, b) => (a.rating - b.rating));
+export const getNumberFromString = (str) => parseInt(str.replace(/[^0-9]/g, ``), 10) || ``;
 
-    // case SortType.RATING_HIGH:
-    //   return guitars.sort((a, b) => (b.rating - a.rating));
-    // case SortType.PRICE_HIGH:
-    //   return guitars.sort((a, b) => (b.price - a.price));
+export const getNumberWithSpaces = (number) => {
+  const chars = [...number.toString()];
+
+  if (chars.length !== 0) {
+    const stringWithSpace = chars.reduceRight((acc, char, index, array) => {
+      const spaceOrNothing = (array.length - index) % 3 === 0 ? ` ` : ``;
+      return spaceOrNothing + char + acc;
+    });
+
+    const result = stringWithSpace[0] === ` ` ? stringWithSpace.slice(1) : stringWithSpace;
+
+    return result;
+  }
+
+  return `0`;
+};
+
+export const returnGuitarPicture = (guitarType) => {
+  switch (guitarType) {
+    case GuitarType.ELECTRO:
+      return `./img/electro-guitar.png`;
+    case GuitarType.ACOUSTIC:
+      return `./img/acoustic-guitar.png`;
+    case GuitarType.UKULELE:
+      return `./img/ukulele.png`;
     default:
-      return guitars;
+      return ``;
+  }
+};
+
+export const returnGuitarSmallPicture = (guitarType) => {
+  switch (guitarType) {
+    case GuitarType.ELECTRO:
+      return `./img/small-electro-guitar.png`;
+    case GuitarType.ACOUSTIC:
+      return `./img/small-acoustic-guitar.png`;
+    case GuitarType.UKULELE:
+      return `./img/small-ukulele.png`;
+    default:
+      return ``;
   }
 };

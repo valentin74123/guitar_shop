@@ -19,6 +19,7 @@
 
   &--basket {
     padding: 10px 18px;
+    position: relative;
   }
 
   &:hover,
@@ -29,4 +30,16 @@
   &:active {
     opacity: 0.5;
   }
+}
+
+.navigation-icons__count {
+  position: absolute;
+  top: 4px;
+  right: 10px;
+
+  font-style: normal;
+  font-weight: normal;
+  font-size: 10px;
+  line-height: 12px;
+  color: $red;
 }

@@ -27,6 +27,11 @@
   text-decoration: none;
   margin-right: 34px;
 
+  &:focus,
+  &:hover {
+    color: $black;
+  }
+
   &--popular {
     margin-right: auto;
   }
@@ -85,6 +90,6 @@
   opacity: 0.3;
 }
 
-.sort__input:checked + .sort__label .sort__label-box {
+.sort__input--checked + .sort__label .sort__label-box {
   opacity: 1;
 }

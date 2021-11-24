@@ -1,4 +1,5 @@
 import React from 'react';
+import {useSelector} from 'react-redux';
 import Logo from '../logo/logo';
 import {Navigation, AppRoute} from '../../const';
 import {Link} from 'react-router-dom';
@@ -6,6 +7,13 @@ import {Link} from 'react-router-dom';
 import "./style.scss";
 
 const Header = () => {
+  const {basket} = useSelector((state) => state.GUITARS);
+
+  let count = 0;
+  basket.map((guitar) => {
+    count += guitar.count;
+  });
+
   const isFooter = false;
   const navigation = Object.values(Navigation);
 
@@ -18,7 +26,9 @@ const Header = () => {
           <ul className="navigation__list">
             {navigation.map((titel, i) => (
               <li key={titel + i} className="navigation__item">
-                <Link className="navigation__link" to="#">
+                <Link className="navigation__link"
+                  to={`${titel === Navigation.Ctalog ? AppRoute.MAIN : `#`}`}
+                >
                   {titel}
                 </Link>
               </li>
@@ -52,6 +62,7 @@ const Header = () => {
                   <use xlinkHref="#basket"></use>
                 </svg>
                 <span className="visually-hidden">Корзина</span>
+                {basket.length !== 0 && <span className="navigation-icons__count">{count}</span>}
               </Link>
             </li>
           </ul>

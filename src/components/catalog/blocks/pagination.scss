@@ -1,10 +1,15 @@
+.pagination {
+  margin-top: 32px;
+}
+
 .pagination__list {
   @include list();
 
   display: flex;
   margin-left: auto;
-  max-width: 220px;
-  column-gap: 10px;
+  justify-content: end;
+  max-width: 290px;
+  column-gap: 13px;
 }
 
 .pagination__link {
@@ -27,5 +32,9 @@
     color: $white;
     border: 0.7px solid $dark-gray3;
     background-color: $dark-gray3;
+  }
+
+  &--word {
+    padding: 4px 20px;
   }
 }

@@ -1,37 +1,45 @@
 import React from 'react';
-import {useSelector, useDispatch} from 'react-redux';
+import PropTypes from 'prop-types';
 import {Link} from 'react-router-dom';
-import {SortType} from '../../const';
-import {setActiveSort} from '../../store/actions';
+import {SortType, SortDirection} from '../../const';
 
 import "./style.scss";
 
-const Sort = () => {
-  const {activeSort} = useSelector((state) => state.GUITARS);
-
-  const dispatch = useDispatch();
-
-  const handelSortChange = (evt) => {
-    dispatch(setActiveSort(evt.target.innerText));
-  };
+const Sort = (props) => {
+  const {
+    sort,
+    handleSortPriceClick,
+    handleSortPopularClick,
+    sortDirection,
+    handleSortAscendingClick,
+    handleSortDescendingClick
+  } = props;
 
   return (
     <section className="sort">
       <h3 className="sort__title">Сортировать:</h3>
-      {Object.values(SortType).map((sort, i) => (
-        <Link key={sort + i} onClick={handelSortChange} className={`sort__type ${sort === activeSort ? `sort__type--active` : ``}`} to="#">
-          {sort}
-        </Link>
-      ))}
+      <Link onClick={handleSortPriceClick} className={`sort__type ${sort === SortType.PRICE ? `sort__type--active` : ``}`} to="#">
+        по цене
+      </Link>
+
+      <Link onClick={handleSortPopularClick} className={`sort__type ${sort === SortType.POPULAR ? `sort__type--active` : ``}`} to="#">
+        по популярности
+      </Link>
 
       <div className="sort__inputs">
-        <input className="sort__input visually-hidden " type="radio" id="down-up" name="sort" defaultChecked/>
+        <input type="radio" id="down-up" name="sort"
+          className={`sort__input visually-hidden ${sortDirection === SortDirection.UP ? `sort__input--checked` : ``}`}
+          onClick={handleSortAscendingClick}
+        />
         <label className="sort__label" htmlFor="down-up">
           <span className="sort__label-box sort__label-box--down"/>
           <span className="visually-hidden">От меньшего к большему</span>
         </label>
 
-        <input className="sort__input visually-hidden" type="radio" id="up-down" name="sort" />
+        <input type="radio" id="up-down" name="sort"
+          className={`sort__input visually-hidden ${sortDirection === SortDirection.DOWN ? `sort__input--checked` : ``}`}
+          onClick={handleSortDescendingClick}
+        />
         <label className="sort__label" htmlFor="up-down">
           <span className="sort__label-box sort__label-box--up"/>
           <span className="visually-hidden">От большего к меньшему</span>
@@ -39,6 +47,15 @@ const Sort = () => {
       </div>
     </section>
   );
+};
+
+Sort.propTypes = {
+  sort: PropTypes.string,
+  handleSortPriceClick: PropTypes.func.isRequired,
+  handleSortPopularClick: PropTypes.func.isRequired,
+  sortDirection: PropTypes.string,
+  handleSortAscendingClick: PropTypes.func.isRequired,
+  handleSortDescendingClick: PropTypes.func.isRequired,
 };
 
 export default Sort;

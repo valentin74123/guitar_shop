@@ -14,7 +14,6 @@ import * as data from './json/guitars.json';
 const guitarsData = Object.values(data)[0];
 const guitars = Object.values(guitarsData);
 
-
 const store = configureStore({
   reducer: rootReducer
 });

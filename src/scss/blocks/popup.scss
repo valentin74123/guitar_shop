@@ -135,6 +135,11 @@
   height: 46px;
 
   margin-bottom: 16px;
+
+  &--to-basket {
+    text-decoration: none;
+    padding-top: 16px;
+  }
 }
 
 .popup__continue {

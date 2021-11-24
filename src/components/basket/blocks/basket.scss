@@ -8,6 +8,10 @@
   @include list();
 }
 
+.basket__empty {
+  margin-bottom: 20px;
+}
+
 .basket__item {
   border-top: 1px solid $light-gray;
   padding: 20px 0;
@@ -63,12 +67,16 @@
 
 .basket__all-price {
   @include price-text();
+
+  width: 174px;
+  text-align: end;
+  margin-right: -5px;
 }
 
 .basket__count {
   display: flex;
   height: 30px;
-  margin: 0 83px;
+  margin-left: 86px;
   margin-top: 20px;
 }
 
@@ -118,5 +126,11 @@
 
   &:active {
     outline: 1px solid $dark-gray5;
+  }
+
+  &::-webkit-outer-spin-button,
+  &::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 }

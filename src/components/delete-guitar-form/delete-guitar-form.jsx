@@ -1,9 +1,23 @@
-import React from "react";
+import React, {useCallback} from 'react';
 import PropTypes from 'prop-types';
 import FocusTrap from 'focus-trap-react';
+import {useDispatch, useSelector} from 'react-redux';
+import {getNumberWithSpaces, returnGuitarSmallPicture} from '../../utils';
+import {deleteFromBasket, setPopup} from '../../store/actions';
 
 const DeleteGuitarForm = (props) => {
   const {onButtonClick} = props;
+
+  const {guitarInfo} = useSelector((state) => state.GUITARS);
+
+  const dispatch = useDispatch();
+
+  const handleFormSubmit = useCallback((evt) => {
+    evt.preventDefault();
+
+    dispatch(deleteFromBasket(guitarInfo));
+    dispatch(setPopup(null));
+  }, [dispatch]);
 
   return (
     <FocusTrap>
@@ -11,15 +25,15 @@ const DeleteGuitarForm = (props) => {
         <button className="popup__close" onClick={onButtonClick} />
 
         <h3 className="popup__title">Удалить этот товар?</h3>
-        <form className="popup__form" action="">
+        <form onSubmit={handleFormSubmit} className="popup__form" action="">
           <div className="popup__form-wrapper">
-            <img className="popup__img" src="./img/small-guitar.png" width="56" height="128" alt="Гитара Честер bass" />
+            <img className="popup__img" src={`${returnGuitarSmallPicture(guitarInfo.type)}`} width="56" height="128" alt="Гитара Честер bass" />
 
             <div className="popup__info-wrapper">
-              <div className="popup__name">Гитара Честер bass</div>
-              <div className="popup__article">Артикул: SO757575</div>
-              <div className="popup__type">Электрогитара, 6 струнная</div>
-              <div className="popup__price">Цена: 17 500 ₽</div>
+              <div className="popup__name">{guitarInfo.name}</div>
+              <div className="popup__article">Артикул: {guitarInfo.article}</div>
+              <div className="popup__type">{guitarInfo.type}, {guitarInfo.strings} струнная</div>
+              <div className="popup__price">Цена: {getNumberWithSpaces(guitarInfo.price)} ₽</div>
             </div>
           </div>
 
