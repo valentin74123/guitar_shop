@@ -16,11 +16,26 @@ export const Navigation = {
 };
 
 export const Rating = {
-  1: `star-active`,
-  2: `star-active`,
-  3: `star-active`,
-  4: `star-active`,
-  5: `star`,
+  1: {
+    status: `star-active`,
+    count: 1,
+  },
+  2: {
+    status: `star-active`,
+    count: 2,
+  },
+  3: {
+    status: `star-active`,
+    count: 3,
+  },
+  4: {
+    status: `star-active`,
+    count: 4,
+  },
+  5: {
+    status: `star`,
+    count: 5,
+  },
 };
 
 export const PopupType = {

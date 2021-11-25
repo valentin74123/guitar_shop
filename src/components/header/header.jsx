@@ -24,8 +24,8 @@ const Header = () => {
 
         <nav className="header__navigation navigation">
           <ul className="navigation__list">
-            {navigation.map((titel, i) => (
-              <li key={titel + i} className="navigation__item">
+            {navigation.map((titel) => (
+              <li key={titel} className="navigation__item">
                 <Link className="navigation__link"
                   to={`${titel === Navigation.Ctalog ? AppRoute.MAIN : `#`}`}
                 >

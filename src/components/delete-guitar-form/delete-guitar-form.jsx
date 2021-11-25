@@ -27,7 +27,7 @@ const DeleteGuitarForm = (props) => {
         <h3 className="popup__title">Удалить этот товар?</h3>
         <form onSubmit={handleFormSubmit} className="popup__form" action="">
           <div className="popup__form-wrapper">
-            <img className="popup__img" src={`${returnGuitarSmallPicture(guitarInfo.type)}`} width="56" height="128" alt="Гитара Честер bass" />
+            <img className="popup__img" src={`${returnGuitarSmallPicture(guitarInfo.type)}`} width="56" height="128" alt={guitarInfo.name} />
 
             <div className="popup__info-wrapper">
               <div className="popup__name">{guitarInfo.name}</div>

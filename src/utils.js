@@ -25,11 +25,11 @@ export const getNumberWithSpaces = (number) => {
 export const returnGuitarPicture = (guitarType) => {
   switch (guitarType) {
     case GuitarType.ELECTRO:
-      return `./img/electro-guitar.png`;
+      return `./img/electro-guitar.jpg`;
     case GuitarType.ACOUSTIC:
-      return `./img/acoustic-guitar.png`;
+      return `./img/acoustic-guitar.jpg`;
     case GuitarType.UKULELE:
-      return `./img/ukulele.png`;
+      return `./img/ukulele.jpg`;
     default:
       return ``;
   }
@@ -38,11 +38,11 @@ export const returnGuitarPicture = (guitarType) => {
 export const returnGuitarSmallPicture = (guitarType) => {
   switch (guitarType) {
     case GuitarType.ELECTRO:
-      return `./img/small-electro-guitar.png`;
+      return `./img/small-electro-guitar.jpg`;
     case GuitarType.ACOUSTIC:
-      return `./img/small-acoustic-guitar.png`;
+      return `./img/small-acoustic-guitar.jpg`;
     case GuitarType.UKULELE:
-      return `./img/small-ukulele.png`;
+      return `./img/small-ukulele.jpg`;
     default:
       return ``;
   }

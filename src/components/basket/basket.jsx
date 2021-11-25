@@ -150,7 +150,7 @@ const Basket = () => {
                   <span className="visually-hidden">Удалить из корзины</span>
                 </button>
 
-                <img className="basket__img" src={`${returnGuitarSmallPicture(guitar.type)}`} alt="ЭлектроГитара Честер bass" />
+                <img className="basket__img" src={`${returnGuitarSmallPicture(guitar.type)}`} width="60" height="136" alt={guitar.name} />
 
                 <div className="basket__info">
                   <h3 className="basket__name">{guitar.name}</h3>

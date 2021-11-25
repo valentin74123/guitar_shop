@@ -6,6 +6,7 @@ import MainScreen from '../main-screen/main-screen';
 import BasketScreen from '../basket-screen/basket-screen';
 import {AppRoute} from '../../const';
 import {loadGuitars} from '../../store/actions';
+import {guitarPropType} from '../guitar-props/guitar-props';
 
 
 const App = (props) => {
@@ -28,7 +29,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-  guitars: PropTypes.arrayOf(PropTypes.object.isRequired),
+  guitars: PropTypes.arrayOf(guitarPropType).isRequired,
 };
 
 export default App;

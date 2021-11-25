@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux';
 import {Rating, PopupType} from '../../const';
 import {setPopup, setGuitarInfoToPopup} from '../../store/actions';
 import {returnGuitarPicture} from '../../utils';
+import {guitarPropType} from '../guitar-props/guitar-props';
 
 import "./style.scss";
 
@@ -42,13 +43,13 @@ const Catalog = (props) => {
       <ul className="catalog__list">
         {guitars.map((guitar) => (
           <li key={guitar.id} className="catalog__item">
-            <img className="catalog__img" src={`${returnGuitarPicture(guitar.type)}`} width="80" height="202" alt="" />
+            <img className="catalog__img" src={`${returnGuitarPicture(guitar.type)}`} width="80" height="202" alt={guitar.name} />
 
             <div className="catalog__rating">
               <span className="catalog__stars">
-                {stars.map((star, i) => (
-                  <svg key={star + i} className="navigation-icons__icon" width="11" height="11">
-                    <use xlinkHref={`#${star}`}></use>
+                {stars.map((star) => (
+                  <svg key={star.count} className="navigation-icons__icon" width="11" height="11">
+                    <use xlinkHref={`#${star.status}`}></use>
                   </svg>
                 ))}
               </span>
@@ -109,8 +110,8 @@ const Catalog = (props) => {
 };
 
 Catalog.propTypes = {
-  guitars: PropTypes.arrayOf(PropTypes.object).isRequired,
-  currentGuitars: PropTypes.arrayOf(PropTypes.object).isRequired,
+  guitars: PropTypes.arrayOf(guitarPropType).isRequired,
+  currentGuitars: PropTypes.arrayOf(guitarPropType).isRequired,
   pagesCount: PropTypes.number.isRequired,
   activePage: PropTypes.number.isRequired,
   handlePrevPageClick: PropTypes.func.isRequired,
