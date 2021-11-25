@@ -4,9 +4,12 @@
 
 .social__list {
   display: flex;
-
-
+  
   @include list();
+
+  flex-wrap: wrap;
+  row-gap: 5px;
+  width: 140px;
 }
 
 .social__item {

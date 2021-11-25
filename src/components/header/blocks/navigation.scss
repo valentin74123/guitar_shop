@@ -3,10 +3,14 @@
   justify-content: space-between;
 
   @include list();
+
+  max-width: 520px;
+  flex-wrap: wrap;
+  row-gap: 10px;
 }
 
 .navigation__item {
-  margin-right: 40px;
+  margin-right: 43px;
 
   &:last-child {
     margin-right: 0;

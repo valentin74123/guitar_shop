@@ -1,5 +1,6 @@
 .sort {
   display: flex;
+  align-items: center;
 }
 
 .sort__title {
@@ -13,7 +14,14 @@
 
   @include zero-margin();
 
-  margin-right: 19px;
+  margin-right: 29px;
+}
+
+.sort__wrapper {
+  max-width: 470px;
+  row-gap: 7px;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .sort__type {

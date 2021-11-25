@@ -18,13 +18,15 @@ const Sort = (props) => {
   return (
     <section className="sort">
       <h3 className="sort__title">Сортировать:</h3>
-      <Link onClick={handleSortPriceClick} className={`sort__type ${sort === SortType.PRICE ? `sort__type--active` : ``}`} to="#">
-        по цене
-      </Link>
+      <div className="sort__wrapper">
+        <Link onClick={handleSortPriceClick} className={`sort__type ${sort === SortType.PRICE ? `sort__type--active` : ``}`} to="#">
+          по цене
+        </Link>
 
-      <Link onClick={handleSortPopularClick} className={`sort__type ${sort === SortType.POPULAR ? `sort__type--active` : ``}`} to="#">
-        по популярности
-      </Link>
+        <Link onClick={handleSortPopularClick} className={`sort__type ${sort === SortType.POPULAR ? `sort__type--active` : ``}`} to="#">
+          по популярности
+        </Link>
+      </div>
 
       <div className="sort__inputs">
         <input type="radio" id="down-up" name="sort"
