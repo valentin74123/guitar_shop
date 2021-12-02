@@ -33,7 +33,7 @@ const Basket = () => {
 
     setCountGoods(countGoods.map((item) => {
       if (item.id === id) {
-        if (item.count - 1 < MIN_COUNT) {
+        if (item.count < MIN_COUNT) {
           dispatch(setPopup(PopupType.DELETE_GUITAR));
 
           return {
