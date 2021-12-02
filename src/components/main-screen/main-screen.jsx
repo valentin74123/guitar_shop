@@ -76,6 +76,69 @@ const MainScreen = () => {
         result = guitar.strings === StringsCount.TWELVE;
       }
 
+      if (!guitarType.acoustic && !guitarType.ukulele && !guitarType.electro) {
+        if (stringsCount.four && stringsCount.six) {
+          result = (guitar.strings === StringsCount.FOUR) ||
+          (guitar.strings === StringsCount.SIX);
+        }
+
+        if (stringsCount.four && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.FOUR) ||
+          (guitar.strings === StringsCount.SEVEN);
+        }
+
+        if (stringsCount.four && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.FOUR) ||
+          (guitar.strings === StringsCount.TWELVE);
+        }
+
+        if (stringsCount.seven && stringsCount.six) {
+          result = (guitar.strings === StringsCount.SEVEN) ||
+          (guitar.strings === StringsCount.SIX);
+        }
+
+        if (stringsCount.twelve && stringsCount.six) {
+          result = (guitar.strings === StringsCount.TWELVE) ||
+          (guitar.strings === StringsCount.SIX);
+        }
+
+        if (stringsCount.twelve && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.TWELVE) ||
+          (guitar.strings === StringsCount.SEVEN);
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.FOUR) ||
+          (guitar.strings === StringsCount.SIX) ||
+          (guitar.strings === StringsCount.SEVEN);
+        }
+
+        if (stringsCount.four && stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.FOUR) ||
+          (guitar.strings === StringsCount.SEVEN) ||
+          (guitar.strings === StringsCount.TWELVE);
+        }
+
+        if (stringsCount.four && stringsCount.twelve && stringsCount.six) {
+          result = (guitar.strings === StringsCount.FOUR) ||
+          (guitar.strings === StringsCount.TWELVE) ||
+          (guitar.strings === StringsCount.SIX);
+        }
+
+        if (stringsCount.seven && stringsCount.twelve && stringsCount.six) {
+          result = (guitar.strings === StringsCount.SEVEN) ||
+          (guitar.strings === StringsCount.TWELVE) ||
+          (guitar.strings === StringsCount.SIX);
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.FOUR) ||
+          (guitar.strings === StringsCount.SIX) ||
+          (guitar.strings === StringsCount.SEVEN) ||
+          (guitar.strings === StringsCount.TWELVE);
+        }
+      }
+
       if (guitarType.electro) {
         result = guitar.type === GuitarType.ELECTRO;
 
@@ -90,6 +153,27 @@ const MainScreen = () => {
         if (stringsCount.seven) {
           result = guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO;
         }
+
+        if (stringsCount.four && stringsCount.six) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO;
+        }
+
+        if (stringsCount.four && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO;
+        }
+
+        if (stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO;
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO;
+        }
       }
 
       if (guitarType.ukulele) {
@@ -99,8 +183,82 @@ const MainScreen = () => {
       if (guitarType.acoustic) {
         result = guitar.type === GuitarType.ACOUSTIC;
 
+        if (stringsCount.six) {
+          result = guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC;
+        }
+
+        if (stringsCount.seven) {
+          result = guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC;
+        }
+
+        if (stringsCount.twelve) {
+          result = guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC;
+        }
+
+        if (stringsCount.twelve && stringsCount.six) {
+          result = (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC) ||
+          guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC;
+        }
+
+        if (stringsCount.twelve && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC) ||
+          guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC;
+        }
+
+        if (stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC;
+        }
+
+        if (stringsCount.twelve && stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC;
+        }
+      }
+
+      if (guitarType.ukulele && guitarType.electro) {
+        result = guitar.type === GuitarType.UKULELE || guitar.type === GuitarType.ELECTRO;
+
         if (stringsCount.four) {
-          result = guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ACOUSTIC;
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) || guitar.type === GuitarType.UKULELE;
+        }
+
+        if (stringsCount.six) {
+          result = guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO;
+        }
+
+        if (stringsCount.seven) {
+          result = guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO;
+        }
+
+        if (stringsCount.four && stringsCount.six) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) || guitar.type === GuitarType.UKULELE ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO);
+        }
+
+        if (stringsCount.four && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) || guitar.type === GuitarType.UKULELE ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO);
+        }
+
+        if (stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO);
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) || guitar.type === GuitarType.UKULELE ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO);
+        }
+      }
+
+      if (guitarType.ukulele && guitarType.acoustic) {
+        result = guitar.type === GuitarType.UKULELE || guitar.type === GuitarType.ACOUSTIC;
+
+        if (stringsCount.four) {
+          result = guitar.type === GuitarType.UKULELE;
         }
 
         if (stringsCount.six) {
@@ -109,6 +267,190 @@ const MainScreen = () => {
 
         if (stringsCount.seven) {
           result = guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC;
+        }
+
+        if (stringsCount.twelve) {
+          result = guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC;
+        }
+
+        if (stringsCount.four && stringsCount.six) {
+          result = (guitar.type === GuitarType.UKULELE) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.seven) {
+          result = (guitar.type === GuitarType.UKULELE) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.twelve) {
+          result = (guitar.type === GuitarType.UKULELE) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.six && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.seven) {
+          result = (guitar.type === GuitarType.UKULELE) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.type === GuitarType.UKULELE) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.twelve) {
+          result = (guitar.type === GuitarType.UKULELE) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.six && stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.type === GuitarType.UKULELE) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC) ||
+          guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC;
+        }
+      }
+
+      if (guitarType.electro && guitarType.acoustic) {
+        result = guitar.type === GuitarType.ELECTRO || guitar.type === GuitarType.ACOUSTIC;
+
+        if (stringsCount.four) {
+          result = guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO;
+        }
+
+        if (stringsCount.six) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.seven) {
+          result = (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.twelve) {
+          result = guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC;
+        }
+
+        if (stringsCount.four && stringsCount.six) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.six && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.seven) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.six && stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.four && stringsCount.six && stringsCount.seven && stringsCount.twelve) {
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC) ||
+          (guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC);
+        }
+      }
+
+      if (guitarType.electro && guitarType.acoustic && guitarType.ukulele) {
+        result = guitar.type === GuitarType.ELECTRO || guitar.type === GuitarType.ACOUSTIC || guitar.type === GuitarType.UKULELE;
+
+        if (stringsCount.four) {
+          result = guitar.strings === (StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) || guitar.type === GuitarType.UKULELE;
+        }
+
+        if (stringsCount.six) {
+          result = (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.seven) {
+          result = (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC);
+        }
+
+        if (stringsCount.twelve) {
+          result = guitar.strings === StringsCount.TWELVE && guitar.type === GuitarType.ACOUSTIC;
         }
       }
 
