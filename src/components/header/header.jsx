@@ -3,10 +3,12 @@ import {useSelector} from 'react-redux';
 import Logo from '../logo/logo';
 import {Navigation, AppRoute} from '../../const';
 import {Link} from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import "./style.scss";
 
-const Header = () => {
+const Header = (props) => {
+  const {isBasket} = props;
   const {basket} = useSelector((state) => state.GUITARS);
 
   let count = 0;
@@ -20,7 +22,7 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__wrapper">
-        <Logo isFooter={isFooter} />
+        <Logo isFooter={isFooter} isBasket={isBasket} />
 
         <nav className="header__navigation navigation">
           <ul className="navigation__list">
@@ -74,6 +76,10 @@ const Header = () => {
       </div>
     </header>
   );
+};
+
+Header.propTypes = {
+  isBasket: PropTypes.bool.isRequired,
 };
 
 export default Header;

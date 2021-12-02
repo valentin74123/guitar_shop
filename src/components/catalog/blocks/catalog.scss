@@ -41,7 +41,10 @@
   color: $dark-gray5;
 
   letter-spacing: 0.1em;
-  margin-top: -1px;
+
+  margin-top: -3px;
+  width: 11px;
+  text-align: end;
 }
 
 .catalog__name,
@@ -52,7 +55,7 @@
   line-height: 15px;
   color: $black;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   margin-bottom: 13px;
 }
 
@@ -62,10 +65,12 @@
 
 .catalog__price {
   text-align: end;
+  margin-right: -4px;
 }
 
 .catalog__info,
 .catalog__buy {
+  font-family: "Droid Sans", "Arial", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 12px;
@@ -81,6 +86,7 @@
 
 .catalog__buy {
   margin-left: auto;
+  margin-right: -1px;
 }
 
 .catalog__buy-icon {

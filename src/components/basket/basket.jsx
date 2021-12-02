@@ -31,12 +31,29 @@ const Basket = () => {
     const number = getNumberFromString(evt.target.value);
     const id = parseInt(evt.target.dataset.id, 10);
 
-    setCountGoods(countGoods.map((item) => item.id === id ? {
-      id: item.id,
-      price: item.price,
-      count: number ? number : 0,
-      sum: item.price * number,
-    } : item));
+    setCountGoods(countGoods.map((item) => {
+      if (item.id === id) {
+        if (item.count - 1 < MIN_COUNT) {
+          dispatch(setPopup(PopupType.DELETE_GUITAR));
+
+          return {
+            id: item.id,
+            price: item.price,
+            count: 1,
+            sum: item.price * number,
+          };
+        }
+
+        return {
+          id: item.id,
+          price: item.price,
+          count: number ? number : 0,
+          sum: item.price * number,
+        };
+      } else {
+        return item;
+      }
+    }));
   };
 
   const handleCountMinus = (evt) => {
@@ -73,47 +90,62 @@ const Basket = () => {
 
 
   const handlePromoType = (evt) =>{
-    if (!promoActivated) {
-      setPromo(evt.target.value);
-      return;
-    }
+    setPromo(evt.target.value);
+    return;
   };
 
   const handlePromoClick = (evt) => {
     evt.preventDefault();
 
-    const promoString = promo.toUpperCase().trim();
-
-    if (promoActivated || sumAll === 0) {
+    if (sumAll === 0) {
       return;
     }
+
+    const promoString = promo.toUpperCase().trim();
 
     switch (promoString) {
       case Promo.GITARAHIT.title.toUpperCase().trim(): {
         setPromoFake(false);
-        setPromoActivated(true);
-        setSumAll(sumAll - (sumAll / 100 * Promo.GITARAHIT.percent));
+        if (promoActivated) {
+          setPromoActivated(false);
+          setSumAll(countGoods.map((good) => good.sum). reduce((prev, next)=> prev + next));
+        } else {
+          setPromoActivated(true);
+          setSumAll(sumAll - (sumAll / 100 * Promo.GITARAHIT.percent));
+        }
+
         break;
       }
       case Promo.SUPERGITARA.title.toUpperCase().trim(): {
         setPromoFake(false);
-        setPromoActivated(true);
-        setSumAll(sumAll - Promo.SUPERGITARA.discount);
+        if (promoActivated) {
+          setPromoActivated(false);
+          setSumAll(countGoods.map((good) => good.sum). reduce((prev, next)=> prev + next));
+        } else {
+          setPromoActivated(true);
+          setSumAll(sumAll - Promo.SUPERGITARA.discount);
+        }
+
         break;
       }
       case Promo.GITARA2020.title.toUpperCase().trim(): {
         setPromoFake(false);
-        setPromoActivated(true);
-
-        if (Promo.GITARA2020.discount > sumAll / 100 * Promo.GITARA2020.percent) {
-          setSumAll(sumAll - (sumAll / 100 * Promo.GITARA2020.percent));
+        if (promoActivated) {
+          setPromoActivated(false);
+          setSumAll(countGoods.map((good) => good.sum). reduce((prev, next)=> prev + next));
         } else {
-          setSumAll(sumAll - Promo.GITARA2020.discount);
+          setPromoActivated(true);
+          if (Promo.GITARA2020.discount > sumAll / 100 * Promo.GITARA2020.percent) {
+            setSumAll(sumAll - (sumAll / 100 * Promo.GITARA2020.percent));
+          } else {
+            setSumAll(sumAll - Promo.GITARA2020.discount);
+          }
         }
 
         break;
       }
       default: {
+        setSumAll(countGoods.map((good) => good.sum). reduce((prev, next)=> prev + next));
         setPromoFake(true);
         setPromoActivated(false);
         return;
@@ -143,7 +175,7 @@ const Basket = () => {
             {basketLength && <div className="basket__empty">Корзина пока пуста, добавьте понравившуюся гитару через каталог</div>}
             {basket.length !== 0 && basket.map((guitar, index) => (
               <li key={guitar.id} className="basket__item">
-                <button data-id={guitar.id} onClick={handleOpenClick} className="basket__delete">
+                <button data-id={guitar.id} onClick={handleOpenClick} className="basket__delete" type="button">
                   <svg data-id={guitar.id} className="basket__delete-icon" width="18" height="18" >
                     <use data-id={guitar.id} xlinkHref="#cross"></use>
                   </svg>
@@ -153,9 +185,9 @@ const Basket = () => {
                 <img className="basket__img" src={`${returnGuitarSmallPicture(guitar.type)}`} width="60" height="136" alt={guitar.name} />
 
                 <div className="basket__info">
-                  <h3 className="basket__name">{guitar.name}</h3>
+                  <h3 className="basket__name">{guitar.type} {guitar.name}</h3>
                   <span className="basket__article">Артикул: {guitar.article}</span><br />
-                  <span className="basket__type">{guitar.type}, {guitar.string} струнная </span>
+                  <span className="basket__type">{guitar.type}, {guitar.strings} струнная </span>
                 </div>
 
                 <span className="basket__price">{getNumberWithSpaces(guitar.price)} ₽</span>
@@ -190,13 +222,13 @@ const Basket = () => {
               <label className="price__description" htmlFor="promo">Введите свой промокод, если он у вас есть.</label>
               {promoFake && <p className="price__description">Промокод не действителен</p>}
 
-              <input value={promo} disabled={promoActivated} onChange={handlePromoType} className="price__promo-text" type="text" id="promo" name="promo"/>
+              <input onChange={handlePromoType} className="price__promo-text" type="text" id="promo" name="promo"/>
               <button onClick={handlePromoClick} type="button" className="price__activate gray-button">Применить купон</button>
             </div>
 
             <div className="price__price">
               <span className="price__final-price">Всего: {getNumberWithSpaces(sumAll)} ₽</span>
-              <button disabled={basketLength} type="submit" className="price__submit orange-button">Оформить заказ</button>
+              <button disabled={basketLength} type="button" className="price__submit orange-button">Оформить заказ</button>
             </div>
           </section>
         </form>

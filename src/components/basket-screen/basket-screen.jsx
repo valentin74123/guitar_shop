@@ -19,7 +19,7 @@ const BasketScreen = () => {
 
   return (
     <div className="page">
-      <Header />
+      <Header isBasket={isBasket} />
 
       <main className="main">
         <CurrentPage isBasket={isBasket} />

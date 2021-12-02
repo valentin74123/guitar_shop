@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {useDispatch} from 'react-redux';
 import {Rating, PopupType} from '../../const';
 import {setPopup, setGuitarInfoToPopup} from '../../store/actions';
-import {returnGuitarPicture} from '../../utils';
+import {returnGuitarPicture, getNumberWithSpaces} from '../../utils';
 import {guitarPropType} from '../guitar-props/guitar-props';
 
 import "./style.scss";
@@ -60,7 +60,7 @@ const Catalog = (props) => {
 
             <span className="catalog__name">{guitar.name}</span>
 
-            <span className="catalog__price">{guitar.price} ₽</span>
+            <span className="catalog__price">{getNumberWithSpaces(guitar.price)} ₽</span>
 
             <button className="catalog__info gray-button">Подробнее</button>
             <button data-id={guitar.id} onClick={handleBuyClick} className="catalog__buy orange-button">

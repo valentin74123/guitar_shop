@@ -9,14 +9,17 @@ const SuccessMessage = (props) => {
 
   return (
     <FocusTrap>
-      <div className="popup__wrapper popup__wrapper--success">
-        <button className="popup__close" onClick={onButtonClick} />
+      <div>
+        <span onClick={onButtonClick} className="popup__overlay"></span>
+        <div className="popup__wrapper popup__wrapper--success">
+          <button className="popup__close" onClick={onButtonClick} />
 
-        <h3 className="popup__title">Товар успешно добавлен в корзину</h3>
+          <h3 className="popup__title">Товар успешно добавлен в корзину</h3>
 
-        <div className="popup__button-wrapper">
-          <Link className="popup__submit popup__submit--to-basket orange-button" type="button" onClick={onButtonClick} to={AppRoute.BASKET}>Перейти в корзину</Link>
-          <button className="popup__continue" type="button" onClick={onButtonClick}>Продолжить покупки</button>
+          <div className="popup__button-wrapper">
+            <Link className="popup__submit popup__submit--to-basket orange-button" type="button" onClick={onButtonClick} to={AppRoute.BASKET}>Перейти в корзину</Link>
+            <button className="popup__continue" type="button" onClick={onButtonClick}>Продолжить покупки</button>
+          </div>
         </div>
       </div>
     </FocusTrap>

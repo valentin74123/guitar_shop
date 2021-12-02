@@ -1,6 +1,5 @@
 .navigation__list {
   display: flex;
-  justify-content: space-between;
 
   @include list();
 
@@ -18,13 +17,14 @@
 }
 
 .navigation__link {
+  font-family: "Droid Sans", "Tahoma", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 14px;
   line-height: 20px;
   color: $black;
   
-  letter-spacing: 0.05em;
+  letter-spacing: 0.06em;
   text-decoration: none;
 
   &:hover,

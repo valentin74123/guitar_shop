@@ -29,7 +29,7 @@ const Sort = (props) => {
       </div>
 
       <div className="sort__inputs">
-        <input type="radio" id="down-up" name="sort"
+        <input type="button" id="down-up" name="sort"
           className={`sort__input visually-hidden ${sortDirection === SortDirection.UP ? `sort__input--checked` : ``}`}
           onClick={handleSortAscendingClick}
         />
@@ -38,7 +38,7 @@ const Sort = (props) => {
           <span className="visually-hidden">От меньшего к большему</span>
         </label>
 
-        <input type="radio" id="up-down" name="sort"
+        <input type="button" id="up-down" name="sort"
           className={`sort__input visually-hidden ${sortDirection === SortDirection.DOWN ? `sort__input--checked` : ``}`}
           onClick={handleSortDescendingClick}
         />

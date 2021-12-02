@@ -49,10 +49,8 @@
   font-size: 16px;
   line-height: 15px;
   color: $black;
-
-  letter-spacing: 0.05em;
   text-transform: uppercase;
-
+  letter-spacing: 0.08em;
   margin-bottom: 12px;
 }
 
@@ -63,7 +61,8 @@
   line-height: 15px;
   color: $black;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
+  margin-bottom: -14px;
 }
 
 @mixin price-text() {

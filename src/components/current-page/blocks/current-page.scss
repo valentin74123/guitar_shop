@@ -16,6 +16,7 @@
   font-size: 22px;
   line-height: 26px;
   color: $black;
+  letter-spacing: 0.03em;
 
   @include zero-margin();
 
@@ -28,18 +29,29 @@
   font-size: 16px;
   line-height: 19px;
   color: $dark-gray2;
+  letter-spacing: 0.05em;
 }
 
 .current-page__page {
-  margin-left: 36px;
+  margin-left: 35px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  color: $dark-gray2;
+  text-decoration: none;
+
+  &--link {
+    @include element-brightness();
+  }
 
   position: relative;
 
   &::after {
     position: absolute;
     content: "";
-    top: 2px;
-    left: -25px;
+    top: 3px;
+    left: -26px;
     width: 14px;
     height: 14px;
     background-image: url("./img/arrow-right.svg");

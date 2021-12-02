@@ -10,11 +10,11 @@
   line-height: 20px;
   color: $black;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
 
   @include zero-margin();
 
-  margin-right: 29px;
+  margin-right: 19px;
 }
 
 .sort__wrapper {
@@ -31,9 +31,9 @@
   line-height: 20px;
   color: $dark-gray3;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
   text-decoration: none;
-  margin-right: 34px;
+  margin-right: 33px;
 
   &:focus,
   &:hover {

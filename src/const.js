@@ -50,16 +50,16 @@ export const Price = {
 };
 
 export const GuitarType = {
-  ELECTRO: `электрогитара`,
-  ACOUSTIC: `акустическая гитара`,
-  UKULELE: `укулеле`
+  ELECTRO: `Электрогитара`,
+  ACOUSTIC: `Акустическая гитара`,
+  UKULELE: `Укулеле`
 };
 
 export const StringsCount = {
-  FOUR: 4,
-  SIX: 6,
-  SEVEN: 7,
-  TWELVE: 12,
+  FOUR: `4`,
+  SIX: `6`,
+  SEVEN: `7`,
+  TWELVE: `12`,
 };
 
 export const SortType = {

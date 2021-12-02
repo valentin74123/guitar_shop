@@ -32,3 +32,17 @@
     opacity: 1;
   }
 }
+
+.social__icon {
+  opacity: 0.65;
+  color: $white;
+
+  &:hover,
+  &:focus {
+    opacity: 0.3;
+  }
+
+  &:active {
+    opacity: 1;
+  }
+}

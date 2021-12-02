@@ -45,54 +45,71 @@ const MainScreen = () => {
   });
 
   const [stringsCount, setStringsCount] = useState({
-    four: true,
-    six: true,
-    seven: true,
-    twelve: true,
+    four: false,
+    six: false,
+    seven: false,
+    twelve: false,
   });
 
   useEffect(() => {
     const array = guitarsInfo.filter((guitar) => {
       let result = false;
 
-      if (guitarType.electro && !result) {
-        result = guitar.type === GuitarType.ELECTRO;
+      if (!guitarType.acoustic && !guitarType.ukulele && !guitarType.electro &&
+          !stringsCount.four && !stringsCount.six && !stringsCount.seven && !stringsCount.twelve) {
+        result = true;
       }
 
-      if (guitarType.ukulele && !result) {
+      if (stringsCount.four) {
+        result = guitar.strings === StringsCount.FOUR;
+      }
+
+      if (stringsCount.six) {
+        result = guitar.strings === StringsCount.SIX;
+      }
+
+      if (stringsCount.seven) {
+        result = guitar.strings === StringsCount.SEVEN;
+      }
+
+      if (stringsCount.twelve) {
+        result = guitar.strings === StringsCount.TWELVE;
+      }
+
+      if (guitarType.electro) {
+        result = guitar.type === GuitarType.ELECTRO;
+
+        if (stringsCount.four) {
+          result = guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO;
+        }
+
+        if (stringsCount.six) {
+          result = guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ELECTRO;
+        }
+
+        if (stringsCount.seven) {
+          result = guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ELECTRO;
+        }
+      }
+
+      if (guitarType.ukulele) {
         result = guitar.type === GuitarType.UKULELE;
       }
 
-      if (guitarType.acoustic && !result) {
+      if (guitarType.acoustic) {
         result = guitar.type === GuitarType.ACOUSTIC;
-      }
 
-      if (result) {
-        result = false;
-
-        if (!stringsType.four && stringsCount.four && !result) {
-          result = guitar.strings === StringsCount.FOUR;
+        if (stringsCount.four) {
+          result = guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ACOUSTIC;
         }
 
-        if (!stringsType.six && stringsCount.six && !result) {
-          result = guitar.strings === StringsCount.SIX;
+        if (stringsCount.six) {
+          result = guitar.strings === StringsCount.SIX && guitar.type === GuitarType.ACOUSTIC;
         }
 
-        if (!stringsType.seven && stringsCount.seven && !result) {
-          result = guitar.strings === StringsCount.SEVEN;
+        if (stringsCount.seven) {
+          result = guitar.strings === StringsCount.SEVEN && guitar.type === GuitarType.ACOUSTIC;
         }
-
-        if (!stringsType.twelve && stringsCount.twelve && !result) {
-          result = guitar.strings === StringsCount.TWELVE;
-        }
-
-        if (!stringsCount.four && !stringsCount.six && !stringsCount.seven && !stringsCount.twelve) {
-          result = true;
-        }
-      }
-
-      if (!guitarType.acoustic && !guitarType.ukulele && !guitarType.electro) {
-        result = true;
       }
 
       if (result) {
@@ -136,6 +153,13 @@ const MainScreen = () => {
         seven: true,
         twelve: true,
       });
+
+      setStringsCount({
+        ...stringsCount,
+        six: false,
+        seven: false,
+        twelve: false,
+      });
     }
 
     if (guitarType.acoustic && !guitarType.electro && !guitarType.ukulele) {
@@ -145,6 +169,11 @@ const MainScreen = () => {
         seven: false,
         twelve: false,
       });
+
+      setStringsCount({
+        ...stringsCount,
+        four: false,
+      });
     }
 
     if (guitarType.electro && !guitarType.acoustic) {
@@ -153,6 +182,11 @@ const MainScreen = () => {
         six: false,
         seven: false,
         twelve: true,
+      });
+
+      setStringsCount({
+        ...stringsCount,
+        twelve: false,
       });
     }
 
@@ -167,10 +201,10 @@ const MainScreen = () => {
 
     if (!guitarType.electro && !guitarType.acoustic && !guitarType.ukulele) {
       setStringsType({
-        four: true,
-        six: true,
-        seven: true,
-        twelve: true,
+        four: false,
+        six: false,
+        seven: false,
+        twelve: false,
       });
 
       setStringsCount({
@@ -329,7 +363,7 @@ const MainScreen = () => {
   };
 
   const handleStringsCountClick = (evt) => {
-    switch (parseInt(evt.target.value, 10)) {
+    switch (evt.target.value) {
       case StringsCount.FOUR: {
         return setStringsCount({
           ...stringsCount,
@@ -359,7 +393,6 @@ const MainScreen = () => {
       }
     }
   };
-
 
   const handleNextPageClick = (evt) => {
     evt.preventDefault();
@@ -391,7 +424,7 @@ const MainScreen = () => {
 
   return (
     <div className="page">
-      <Header />
+      <Header isBasket={isBasket} />
 
       <main className="main">
         <CurrentPage isBasket={isBasket} />

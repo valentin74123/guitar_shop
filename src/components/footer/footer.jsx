@@ -19,28 +19,19 @@ const Footer = (props) => {
             <ul className="social__list">
               <li className="social__item">
                 <Link className="social__link" to="#">
-                  <svg className="social__icon" width="24" height="24">
-                    <use xlinkHref="#facebook"></use>
-                  </svg>
-                  <span className="visually-hidden">Facebook</span>
+                  <img className="social__icon" src="./img/icon-facebook.svg" width="24" height="24" alt="Facebook" />
                 </Link>
               </li>
 
               <li className="social__item">
                 <Link className="social__link" to="#">
-                  <svg className="social__icon" width="24" height="24">
-                    <use xlinkHref="#instagram"></use>
-                  </svg>
-                  <span className="visually-hidden">Instagram</span>
+                  <img className="social__icon" src="./img/icon-instagram.svg" width="24" height="24" alt="Instagram" />
                 </Link>
               </li>
 
               <li className="social__item">
                 <Link className="social__link" to="#">
-                  <svg className="social__icon" width="24" height="24">
-                    <use xlinkHref="#twitter"></use>
-                  </svg>
-                  <span className="visually-hidden">Twitter</span>
+                  <img className="social__icon" src="./img/icon-twitter.svg" width="24" height="24" alt="Twitter" />
                 </Link>
               </li>
             </ul>
@@ -51,7 +42,7 @@ const Footer = (props) => {
           <ul className="footer-nav__list">
             <li className="footer-nav__item">
               <span className="footer-nav__title">О нас</span>
-              <ul className="footer-nav__info-list footer-nav__info-list--text">
+              <ul className="footer-nav__info-list footer-nav__info-list--about">
                 <li className="footer-nav__info-list-item">
                   Магазин гитар, музыкальных&nbsp;инструментов и&nbsp;гитарная
                   мастерская в Санкт-Петербурге.
@@ -65,7 +56,7 @@ const Footer = (props) => {
 
             <li className="footer-nav__item">
               <span className="footer-nav__title">Каталог</span>
-              <ul className="footer-nav__info-list">
+              <ul className="footer-nav__info-list footer-nav__info-list--catalog">
                 <li className="footer-nav__info-list-item">
                   <Link className="footer-nav__info-guitar" to="#">
                     Акустические гитары
@@ -100,7 +91,7 @@ const Footer = (props) => {
 
             <li className="footer-nav__item">
               <span className="footer-nav__title">Информация</span>
-              <ul className="footer-nav__info-list">
+              <ul className="footer-nav__info-list footer-nav__info-list--info">
                 <li className="footer-nav__info-list-item">
                   <Link className="footer-nav__info-nav" to="#">
                     Где купить?
@@ -135,7 +126,7 @@ const Footer = (props) => {
 
             <li className="footer-nav__item">
               <span className="footer-nav__title">Контакты</span>
-              <ul className="footer-nav__info-list footer-nav__info-list--text">
+              <ul className="footer-nav__info-list footer-nav__info-list--contacts">
                 <li className="footer-nav__info-list-item">
                   г. Санкт-Петербург,
                   м.&nbsp;Невский проспект, ул.&nbsp;Казанская 6.<br />

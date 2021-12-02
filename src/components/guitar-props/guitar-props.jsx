@@ -6,7 +6,7 @@ export const guitarPropType = PropTypes.shape({
   name: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
   rating: PropTypes.number.isRequired,
-  strings: PropTypes.number.isRequired,
+  strings: PropTypes.string.isRequired,
   price: PropTypes.number.isRequired,
   count: PropTypes.number,
 });

@@ -21,27 +21,30 @@ const DeleteGuitarForm = (props) => {
 
   return (
     <FocusTrap>
-      <div className="popup__wrapper">
-        <button className="popup__close" onClick={onButtonClick} />
+      <div>
+        <span onClick={onButtonClick} className="popup__overlay"></span>
+        <div className="popup__wrapper">
+          <button className="popup__close" onClick={onButtonClick} />
 
-        <h3 className="popup__title">Удалить этот товар?</h3>
-        <form onSubmit={handleFormSubmit} className="popup__form" action="">
-          <div className="popup__form-wrapper">
-            <img className="popup__img" src={`${returnGuitarSmallPicture(guitarInfo.type)}`} width="56" height="128" alt={guitarInfo.name} />
+          <h3 className="popup__title">Удалить этот товар?</h3>
+          <form onSubmit={handleFormSubmit} className="popup__form" action="">
+            <div className="popup__form-wrapper">
+              <img className="popup__img" src={`${returnGuitarSmallPicture(guitarInfo.type)}`} width="56" height="128" alt={guitarInfo.name} />
 
-            <div className="popup__info-wrapper">
-              <div className="popup__name">{guitarInfo.name}</div>
-              <div className="popup__article">Артикул: {guitarInfo.article}</div>
-              <div className="popup__type">{guitarInfo.type}, {guitarInfo.strings} струнная</div>
-              <div className="popup__price">Цена: {getNumberWithSpaces(guitarInfo.price)} ₽</div>
+              <div className="popup__info-wrapper">
+                <div className="popup__name">{guitarInfo.name}</div>
+                <div className="popup__article">Артикул: {guitarInfo.article}</div>
+                <div className="popup__type">{guitarInfo.type}, {guitarInfo.strings} струнная</div>
+                <div className="popup__price">Цена: {getNumberWithSpaces(guitarInfo.price)} ₽</div>
+              </div>
             </div>
-          </div>
 
-          <div className="popup__button-wrapper">
-            <button className="popup__submit orange-button" type="submit">Удалить товар</button>
-            <button className="popup__continue" type="button" onClick={onButtonClick}>Продолжить покупки</button>
-          </div>
-        </form>
+            <div className="popup__button-wrapper">
+              <button className="popup__submit orange-button" type="submit">Удалить товар</button>
+              <button className="popup__continue" type="button" onClick={onButtonClick}>Продолжить покупки</button>
+            </div>
+          </form>
+        </div>
       </div>
     </FocusTrap>
   );

@@ -8,6 +8,7 @@
   font-size: 18px;
   line-height: 21px;
   color: $black;
+  letter-spacing: 0.04em;
 
   @include zero-margin();
 
@@ -33,6 +34,7 @@
 
   margin-top: 31px;
   margin-bottom: 23px;
+  letter-spacing: 0.02em;
 }
 
 .filters__item-wrapper {
@@ -68,7 +70,7 @@
   font-weight: normal;
   font-size: 14px;
   line-height: 10px;
-  color: rgba($black, 0.6);
+  color: $black;
 
   letter-spacing: 0.05em;
 
@@ -78,7 +80,7 @@
   border-radius: 2px;
   text-align: center;
   padding-top: 5px;
-  padding-bottom: 4px;
+  padding-bottom: 5px;
 }
 
 .filters__item-wrapper-checkbox {
@@ -92,6 +94,7 @@
   font-size: 16px;
   line-height: 19px;
   color: $black;
+  letter-spacing: 0.03em;
 
   display: flex;
   cursor: pointer;

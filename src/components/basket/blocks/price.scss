@@ -6,7 +6,7 @@
 }
 
 .price__promo {
-  max-width: 405px;
+  max-width: 411px;
 }
 
 .price__title {
@@ -16,7 +16,7 @@
   line-height: 15px;
   color: $black;
 
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
 
   @include zero-margin();
 
@@ -30,7 +30,7 @@
   line-height: 15px;
   color: $black;
   
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   display: block;
   margin-bottom: 18px;
 }
@@ -54,6 +54,7 @@
 
 .price__activate {
   border-radius: 2px;
+  font-family: "Droid Sans", "Arial", sans-serif;
   border: none;
   font-style: normal;
   font-weight: bold;
@@ -61,8 +62,8 @@
   line-height: 15px;
   color: $white;
 
-  letter-spacing: 0.05em;
-  padding: 10.5px 25px;
+  letter-spacing: 0.03em;
+  padding: 10.5px 24px;
 }
 
 .price__price {
@@ -76,19 +77,20 @@
   line-height: 15px;
   color: $black;
   
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   display: block;
   text-align: end;
   margin-bottom: 44px;
 }
 
 .price__submit {
+  font-family: "Droid Sans", "Arial", sans-serif;
   font-style: normal;
   font-weight: bold;
   font-size: 16px;
   line-height: 15px;
   
-  letter-spacing: 0.05em;
+  letter-spacing: 0.07em;
   border: none;
   border-radius: 2px;
   padding: 10px 34px 11px;
