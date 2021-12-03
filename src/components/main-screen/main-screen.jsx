@@ -37,12 +37,6 @@ const MainScreen = () => {
     acoustic: false,
   });
 
-  // setGuitarType({
-  //   electro: false,
-  //   ukulele: false,
-  //   acoustic: false,
-  // });
-
   const [guitarDisabled, setGuitarChecked] = useState({
     electro: false,
     ukulele: false,
@@ -233,7 +227,8 @@ const MainScreen = () => {
         result = guitar.type === GuitarType.UKULELE || guitar.type === GuitarType.ELECTRO;
 
         if (stringsCount.four) {
-          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) || guitar.type === GuitarType.UKULELE;
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) ||
+          (guitar.type === GuitarType.UKULELE);
         }
 
         if (stringsCount.six) {
@@ -448,7 +443,7 @@ const MainScreen = () => {
         result = guitar.type === GuitarType.ELECTRO || guitar.type === GuitarType.ACOUSTIC || guitar.type === GuitarType.UKULELE;
 
         if (stringsCount.four) {
-          result = guitar.strings === (StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) || guitar.type === GuitarType.UKULELE;
+          result = (guitar.strings === StringsCount.FOUR && guitar.type === GuitarType.ELECTRO) || guitar.type === GuitarType.UKULELE;
         }
 
         if (stringsCount.six) {
