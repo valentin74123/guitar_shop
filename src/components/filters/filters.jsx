@@ -16,6 +16,7 @@ const Filters = (props) => {
     onChangeMax,
 
     guitarType,
+    guitarDisabled,
     handleGuitarTypeChange,
 
     stringsType,
@@ -58,6 +59,7 @@ const Filters = (props) => {
               <div className="filters__item-wrapper-checkbox">
                 <input className="filters__checkbox visually-hidden" type="checkbox" id="acoustic" name="acoustic"
                   value={GuitarType.ACOUSTIC}
+                  disabled={guitarDisabled.acoustic}
                   defaultChecked={guitarType.acoustic}
                   onChange={handleGuitarTypeChange}
                 />
@@ -70,6 +72,7 @@ const Filters = (props) => {
               <div className="filters__item-wrapper-checkbox">
                 <input className="filters__checkbox visually-hidden" type="checkbox" id="electric" name="electric"
                   value={GuitarType.ELECTRO}
+                  disabled={guitarDisabled.electro}
                   defaultChecked={guitarType.electro}
                   onChange={handleGuitarTypeChange}
                 />
@@ -82,6 +85,7 @@ const Filters = (props) => {
               <div className="filters__item-wrapper-checkbox">
                 <input className="filters__checkbox visually-hidden" type="checkbox" id="ukulele" name="ukulele"
                   value={GuitarType.UKULELE}
+                  disabled={guitarDisabled.ukulele}
                   defaultChecked={guitarType.ukulele}
                   onChange={handleGuitarTypeChange}
                 />
@@ -165,6 +169,7 @@ Filters.propTypes = {
   onBlurMax: PropTypes.func.isRequired,
   onChangeMax: PropTypes.func.isRequired,
   guitarType: PropTypes.objectOf(PropTypes.bool).isRequired,
+  guitarDisabled: PropTypes.objectOf(PropTypes.bool).isRequired,
   handleGuitarTypeChange: PropTypes.func.isRequired,
   stringsType: PropTypes.objectOf(PropTypes.bool).isRequired,
   stringsCount: PropTypes.objectOf(PropTypes.bool).isRequired,

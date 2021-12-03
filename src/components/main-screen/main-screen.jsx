@@ -37,6 +37,12 @@ const MainScreen = () => {
     acoustic: false,
   });
 
+  const [guitarDisabled, setGuitarChecked] = useState({
+    electro: false,
+    ukulele: false,
+    acoustic: false,
+  });
+
   const [stringsType, setStringsType] = useState({
     four: false,
     six: false,
@@ -559,6 +565,71 @@ const MainScreen = () => {
   }, [guitarType]);
 
   useEffect(() => {
+    if ((!stringsCount.four && !stringsCount.six && !stringsCount.seven && !stringsCount.twelve) ||
+    (stringsCount.four && stringsCount.six && stringsCount.seven && stringsCount.twelve)) {
+      setGuitarChecked({
+        electro: false,
+        ukulele: false,
+        acoustic: false,
+      });
+    }
+
+    if (stringsCount.four) {
+      setGuitarChecked({
+        ...guitarDisabled,
+        acoustic: true,
+      });
+    }
+
+    if (stringsCount.six || stringsCount.seven) {
+      setGuitarChecked({
+        ...guitarDisabled,
+        ukulele: true,
+      });
+    }
+
+    if (stringsCount.twelve) {
+      setGuitarChecked({
+        ...guitarDisabled,
+        electro: true,
+        ukulele: true,
+      });
+    }
+
+    if (stringsCount.four && stringsCount.six || stringsCount.four && stringsCount.seven) {
+      setGuitarChecked({
+        electro: false,
+        ukulele: false,
+        acoustic: false,
+      });
+    }
+
+    if (stringsCount.four && stringsCount.twelve) {
+      setGuitarChecked({
+        electro: false,
+        ukulele: false,
+        acoustic: false,
+      });
+    }
+
+    if (stringsCount.twelve && stringsCount.six || stringsCount.twelve && stringsCount.seven) {
+      setGuitarChecked({
+        electro: false,
+        ukulele: true,
+        acoustic: false,
+      });
+    }
+
+    if (stringsCount.twelve && stringsCount.six && stringsCount.four || stringsCount.twelve && stringsCount.four && stringsCount.seven) {
+      setGuitarChecked({
+        electro: false,
+        ukulele: false,
+        acoustic: false,
+      });
+    }
+  }, [stringsCount]);
+
+  useEffect(() => {
     if (priceRange.min < Price.MIN && !focusedInputMin) {
       return setPriceRange({
         ...priceRange,
@@ -782,6 +853,7 @@ const MainScreen = () => {
             onChangeMax={handleMaxPriceType}
 
             guitarType={guitarType}
+            guitarDisabled={guitarDisabled}
             handleGuitarTypeChange={handleGuitarTypeChange}
 
             stringsType={stringsType}
