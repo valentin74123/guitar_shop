@@ -37,6 +37,12 @@ const MainScreen = () => {
     acoustic: false,
   });
 
+  // setGuitarType({
+  //   electro: false,
+  //   ukulele: false,
+  //   acoustic: false,
+  // });
+
   const [guitarDisabled, setGuitarChecked] = useState({
     electro: false,
     ukulele: false,
@@ -565,8 +571,7 @@ const MainScreen = () => {
   }, [guitarType]);
 
   useEffect(() => {
-    if ((!stringsCount.four && !stringsCount.six && !stringsCount.seven && !stringsCount.twelve) ||
-    (stringsCount.four && stringsCount.six && stringsCount.seven && stringsCount.twelve)) {
+    if (!stringsCount.four && !stringsCount.six && !stringsCount.seven && !stringsCount.twelve) {
       setGuitarChecked({
         electro: false,
         ukulele: false,
@@ -579,6 +584,8 @@ const MainScreen = () => {
         ...guitarDisabled,
         acoustic: true,
       });
+
+      guitarType.acoustic = false;
     }
 
     if (stringsCount.six || stringsCount.seven) {
@@ -586,6 +593,8 @@ const MainScreen = () => {
         ...guitarDisabled,
         ukulele: true,
       });
+
+      guitarType.ukulele = false;
     }
 
     if (stringsCount.twelve) {
@@ -594,6 +603,9 @@ const MainScreen = () => {
         electro: true,
         ukulele: true,
       });
+
+      guitarType.electro = false;
+      guitarType.ukulele = false;
     }
 
     if (stringsCount.four && stringsCount.six || stringsCount.four && stringsCount.seven) {
@@ -618,6 +630,8 @@ const MainScreen = () => {
         ukulele: true,
         acoustic: false,
       });
+
+      guitarType.ukulele = false;
     }
 
     if (stringsCount.twelve && stringsCount.six && stringsCount.four || stringsCount.twelve && stringsCount.four && stringsCount.seven) {
@@ -627,7 +641,15 @@ const MainScreen = () => {
         acoustic: false,
       });
     }
-  }, [stringsCount]);
+
+    if (stringsCount.four && stringsCount.six && stringsCount.seven && stringsCount.twelve) {
+      setGuitarChecked({
+        electro: false,
+        ukulele: false,
+        acoustic: false,
+      });
+    }
+  }, [stringsCount, stringsType]);
 
   useEffect(() => {
     if (priceRange.min < Price.MIN && !focusedInputMin) {

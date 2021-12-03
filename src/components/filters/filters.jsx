@@ -60,7 +60,7 @@ const Filters = (props) => {
                 <input className="filters__checkbox visually-hidden" type="checkbox" id="acoustic" name="acoustic"
                   value={GuitarType.ACOUSTIC}
                   disabled={guitarDisabled.acoustic}
-                  defaultChecked={guitarType.acoustic}
+                  checked={guitarType.acoustic}
                   onChange={handleGuitarTypeChange}
                 />
                 <label className="filters__label" htmlFor="acoustic">
@@ -73,7 +73,7 @@ const Filters = (props) => {
                 <input className="filters__checkbox visually-hidden" type="checkbox" id="electric" name="electric"
                   value={GuitarType.ELECTRO}
                   disabled={guitarDisabled.electro}
-                  defaultChecked={guitarType.electro}
+                  checked={guitarType.electro}
                   onChange={handleGuitarTypeChange}
                 />
                 <label className="filters__label" htmlFor="electric">
@@ -86,7 +86,7 @@ const Filters = (props) => {
                 <input className="filters__checkbox visually-hidden" type="checkbox" id="ukulele" name="ukulele"
                   value={GuitarType.UKULELE}
                   disabled={guitarDisabled.ukulele}
-                  defaultChecked={guitarType.ukulele}
+                  checked={guitarType.ukulele}
                   onChange={handleGuitarTypeChange}
                 />
                 <label className="filters__label" htmlFor="ukulele">
